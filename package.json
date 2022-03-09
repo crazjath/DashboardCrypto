@@ -4,16 +4,21 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev":"nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "build-css": "tailwindcss -i ./src/style.css -o ./public/stylesheets/style.css"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "hbs": "^4.2.0",
+    "heroicons": "^1.0.6",
     "http-errors": "~1.6.3",
     "mongo": "^0.1.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
   }
 }
