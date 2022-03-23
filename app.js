@@ -7,7 +7,6 @@ var hbs = require('hbs');
 
 var LoginRouter = require('./routes/Login');
 var indexURouter = require('./routes/indexUsuarios');
-var usersURouter = require('./routes/usersUsuarios');
 var rigsURouter = require('./routes/rigsUsuarios');
 var finanzasURouter = require('./routes/finanzasUsuarios');
 var indexARouter = require('./routes/indexAdmin');
@@ -31,7 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', LoginRouter);
 app.use('/usuario/Inicio', indexURouter);
-app.use('/usuario/users', usersURouter);
 app.use('/usuario/rigs', rigsURouter);
 app.use('/usuario/finanzas', finanzasURouter);
 app.use('/admin/Inicio', indexARouter);
