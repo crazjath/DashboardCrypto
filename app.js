@@ -12,6 +12,7 @@ var rigsURouter = require('./routes/rigsUsuarios');
 var finanzasURouter = require('./routes/finanzasUsuarios');
 var indexARouter = require('./routes/indexAdmin');
 var usersARouter = require('./routes/usersAdmin');
+var usersARouter2 = require('./routes/usersAdmin2');
 var rigsARouter = require('./routes/rigsAdmin');
 var finanzasARouter = require('./routes/finanzasAdmin');
 
@@ -35,6 +36,7 @@ app.use('/usuario/rigs', rigsURouter);
 app.use('/usuario/finanzas', finanzasURouter);
 app.use('/admin/Inicio', indexARouter);
 app.use('/admin/users', usersARouter);
+app.use('/admin/users/listas', usersARouter2);
 app.use('/admin/rigs', rigsARouter);
 app.use('/admin/finanzas', finanzasARouter);
 

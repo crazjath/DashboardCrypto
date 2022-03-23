@@ -591,6 +591,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100vh;
 }
 
+.min-h-\[50\%\] {
+  min-height: 50%;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -615,8 +619,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 20rem;
 }
 
+.w-96 {
+  width: 24rem;
+}
+
 .w-52 {
   width: 13rem;
+}
+
+.min-w-max {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
 }
 
 .max-w-6xl {
