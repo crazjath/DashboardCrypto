@@ -5,11 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var LoginRouter = require('./routes/Login');
-var rigsRouter = require('./routes/rigs');
-var finanzasRouter = require('./routes/finanzas');
+var indexURouter = require('./routes/indexUsuarios');
+var usersURouter = require('./routes/usersUsuarios');
+var rigsURouter = require('./routes/rigsUsuarios');
+var finanzasURouter = require('./routes/finanzasUsuarios');
+var indexARouter = require('./routes/indexAdmin');
+var usersARouter = require('./routes/usersAdmin');
+var rigsARouter = require('./routes/rigsAdmin');
+var finanzasARouter = require('./routes/finanzasAdmin');
 
 var app = express();
 
@@ -24,11 +28,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/Inicio', indexRouter);
-app.use('/users', usersRouter);
 app.use('/', LoginRouter);
-app.use('/rigs', rigsRouter);
-app.use('/finanzas', finanzasRouter);
+app.use('/usuario/Inicio', indexURouter);
+app.use('/usuario/users', usersURouter);
+app.use('/usuario/rigs', rigsURouter);
+app.use('/usuario/finanzas', finanzasURouter);
+app.use('/admin/Inicio', indexARouter);
+app.use('/admin/users', usersARouter);
+app.use('/admin/rigs', rigsARouter);
+app.use('/admin/finanzas', finanzasARouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
