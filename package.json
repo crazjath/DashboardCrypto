@@ -11,12 +11,15 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "express-session": "^1.17.2",
     "hbs": "^4.2.0",
     "heroicons": "^1.0.6",
     "http-errors": "~1.6.3",
     "mongo": "^0.1.0",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "tailwindcss": "^3.0.23"

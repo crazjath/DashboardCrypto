@@ -502,6 +502,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 0px;
 }
 
+.right-0 {
+  right: 0px;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -514,25 +518,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 0px;
 }
 
-.right-0 {
-  right: 0px;
+.m-6 {
+  margin: 1.5rem;
 }
 
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-
-.mt-1 {
-  margin-top: 0.25rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
 }
 
 .mt-16 {
@@ -555,6 +547,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 2rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -575,6 +579,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: table;
 }
 
+.grid {
+  display: grid;
+}
+
 .h-6 {
   height: 1.5rem;
 }
@@ -585,6 +593,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-5 {
   height: 1.25rem;
+}
+
+.h-48 {
+  height: 12rem;
 }
 
 .h-screen {
@@ -643,6 +655,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -661,6 +677,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .overflow-x-auto {
@@ -751,6 +771,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.bg-indigo-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
+}
+
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
@@ -759,11 +784,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
-}
-
-.bg-indigo-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {
@@ -808,12 +828,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 1rem;
 }
 
-.p-2\.5 {
-  padding: 0.625rem;
-}
-
 .p-10 {
   padding: 2.5rem;
+}
+
+.p-2\.5 {
+  padding: 0.625rem;
 }
 
 .px-10 {
@@ -841,14 +861,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 1rem;
 }
 
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .py-20 {
   padding-top: 5rem;
   padding-bottom: 5rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .pl-2 {
@@ -863,12 +883,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 5rem;
 }
 
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
 .pt-10 {
   padding-top: 2.5rem;
 }
 
-.pl-3 {
-  padding-left: 0.75rem;
+.pl-80 {
+  padding-left: 20rem;
 }
 
 .pl-10 {
@@ -915,12 +939,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 700;
 }
 
-.font-medium {
-  font-weight: 500;
-}
-
 .font-extrabold {
   font-weight: 800;
+}
+
+.font-medium {
+  font-weight: 500;
 }
 
 .font-semibold {
@@ -969,6 +993,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -979,19 +1013,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.text-gray-800 {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-
 .text-blue-800 {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity));
-}
-
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .shadow-xl {

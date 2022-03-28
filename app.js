@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
+var passport = require('passport');
+
 
 var LoginRouter = require('./routes/Login');
 var indexURouter = require('./routes/indexUsuarios');
@@ -14,6 +16,7 @@ var usersARouter = require('./routes/usersAdmin');
 var usersARouter2 = require('./routes/usersAdmin2');
 var rigsARouter = require('./routes/rigsAdmin');
 var finanzasARouter = require('./routes/finanzasAdmin');
+var signupAdminRouter = require('./routes/signupAdmin');
 
 var app = express();
 
@@ -27,6 +30,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', LoginRouter);
 app.use('/usuario/Inicio', indexURouter);
@@ -37,6 +43,7 @@ app.use('/admin/users', usersARouter);
 app.use('/admin/users/listas', usersARouter2);
 app.use('/admin/rigs', rigsARouter);
 app.use('/admin/finanzas', finanzasARouter);
+app.use('/admin/signupAdmin', signupAdminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
