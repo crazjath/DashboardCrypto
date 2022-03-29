@@ -7,7 +7,7 @@ const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
 
 // Database Name
-const dbName = 'loginDB';
+const dbName = 'botdb';
 
 
 module.exports = {client, dbName};

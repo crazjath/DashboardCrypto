@@ -891,6 +891,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 2.5rem;
 }
 
+.pl-16 {
+  padding-left: 4rem;
+}
+
 .pl-80 {
   padding-left: 20rem;
 }
@@ -901,10 +905,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pl-8 {
   padding-left: 2rem;
-}
-
-.pl-16 {
-  padding-left: 4rem;
 }
 
 .text-left {
