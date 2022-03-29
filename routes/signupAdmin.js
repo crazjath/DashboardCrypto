@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 router.post("/registro", function (req,res,next){
     regUser(req.body)
     .then(()=>{
-      res.render('signupAdmin')
+      res.render('usersAdmin')
     })
     .catch((err)=>{
      console.log(err);
