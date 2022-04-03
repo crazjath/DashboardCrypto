@@ -17,6 +17,8 @@
     "heroicons": "^1.0.6",
     "http-errors": "~1.6.3",
     "joi": "^17.6.0",
+    "joi-json": "^4.0.0",
+    "joi-to-json": "^2.2.0",
     "mongo": "^0.1.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.15",
