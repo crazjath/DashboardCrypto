@@ -8,6 +8,7 @@ var passport = require('passport');
 
 
 
+
 var LoginRouter = require('./routes/Login');
 var indexURouter = require('./routes/indexUsuarios');
 var rigsURouter = require('./routes/rigsUsuarios');

@@ -1,4 +1,6 @@
 var builder = require( 'joi-json' ).builder();
+var bcrypt = require("bcrypt");
+var saltRounds = 10;
 
 const datoSchema = {
     email:{
@@ -14,4 +16,14 @@ const datoSchema = {
         'number: min=0, max=100'
     ]
 };
-let schema = builder.build(datoSchema);
+
+datoSchema.statics.encryptPassword = async(password) =>{
+    const salt = await bcrypt.genSalt(saltRounds)
+    return await bcrypt.hash(password,salt)
+}
+
+datoSchema.statics.comparePassword = async(password,receivedPassword)=>{
+    return await bcrypt.compare(password,receivedPassword)
+}
+
+let datoSchema = builder.build(datoSchema);

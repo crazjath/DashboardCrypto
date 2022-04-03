@@ -5,6 +5,7 @@ var {client, dbName} = require('../db/mongo');
 
 
 
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('signupAdmin');
@@ -37,5 +38,7 @@ router.post("/registro", function (req,res,next){
       }
     )
    }
+
+
 
 module.exports = router;
