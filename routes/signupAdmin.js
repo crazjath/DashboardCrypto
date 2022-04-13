@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var {client, dbName} = require('../db/mongo');
+var User = require('../models/models');
 
-
-
-
+const bcrypt = require('bcryptjs')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -25,16 +24,19 @@ router.post("/registro", function (req,res,next){
   });
 
 
-  async function regUser(datos){
+async function regUser(datos){
     await client.connect();
     const db = client.db(dbName);
     const collection = db.collection('Usuarios');
+
+    const hashUserPassword = await bcrypt.hash(datos.password, 10)
+
     await collection.insertOne(
       {
         nombre: datos.user,
         apellido: datos.name,
         email: datos.email,
-        password: datos.password
+        password: hashUserPassword
       }
     )
    }

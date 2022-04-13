@@ -35,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+const fetch = require('node-fetch');
 
 
 app.use('/', LoginRouter);
@@ -47,6 +48,12 @@ app.use('/admin/users/listas', usersARouter2);
 app.use('/admin/rigs', rigsARouter);
 app.use('/admin/finanzas', finanzasARouter);
 app.use('/admin/signupAdmin', signupAdminRouter);
+
+//fetch api
+/*fetch(process.env.API_URL)
+.then(promesaF => promesaF.json())
+.then(contenido => console.log(contenido.data.transactions));*/
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
