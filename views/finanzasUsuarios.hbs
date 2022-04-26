@@ -2,7 +2,7 @@
 <div class="flex flex-row">
     {{> dashboardUsuarios}}
 
-
+<div class="grid grid-rows-3 gap-4">
 
   <div>
     <table>
@@ -47,7 +47,6 @@
       </tbody>
     </table>
   </div>
-    
 
     <script>
       let url = 'https://api.simpleminer.app/?type=wallet&phone=528712001994&token=eb81c251cc3deaf925465008da4d198a';
@@ -62,7 +61,9 @@
             let bodyWor = ""
             let bodyTranD = ""
                  
-               body1+=`<tr><td>"ETH"</td><td>${data.data.eth}</td><td>${data.data.rates.eth}</td></tr>`
+               body1+=`<tr><td>"ETH"</td>
+                           <td>${data.data.eth}</td>
+                           <td>${data.data.rates.eth}</td></tr>`
                              
                bodyWor+=`<tr><td>"Serge"</td>
                            <td>${data.data.transactions.transactions[0].data.workers.Serge.shares}</td>
@@ -90,12 +91,14 @@
                            <td>${data.data.transactions.transactions[0].data.workers.Carlos_Adame.reportedSpeed}</td>
                            <td>${data.data.transactions.transactions[0].data.workers.Carlos_Adame.eth}</td></tr>`
 
-               bodyTranD+=`<tr><td>${data.data.transactions.transactions[0].id}</td><td>${data.data.transactions.transactions[0].date}</td><td>${data.data.transactions.transactions[0].eth}</td></tr>`
+               bodyTranD+=`<tr><td>${data.data.transactions.transactions[0].id}</td>
+                               <td>${data.data.transactions.transactions[0].date}</td>
+                               <td>${data.data.transactions.transactions[0].eth}</td></tr>`
             
             document.getElementById('data1').innerHTML = body1
             document.getElementById('workers').innerHTML = bodyWor
             document.getElementById('tranD').innerHTML = bodyTranD
         }
     </script>
-
+</div>
 </div>
