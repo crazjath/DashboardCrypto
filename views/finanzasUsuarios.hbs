@@ -1,140 +1,101 @@
     {{> header}}
-
+<div class="flex flex-row">
     {{> dashboardUsuarios}}
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Getting Started with Chart JS with www.chartjs3.com</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-      .chartMenu {
-        width: 100vw;
-        height: 40px;
-        background: #1A1A1A;
-        color: rgba(255, 26, 104, 1);
-      }
-      .chartMenu p {
-        padding: 10px;
-        font-size: 20px;
-      }
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        background: rgba(255, 26, 104, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 700px;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgba(255, 26, 104, 1);
-        background: white;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="chartMenu">
-      <p>WWW.CHARTJS3.COM (Chart JS 3.7.1)</p>
-    </div>
-    <div class="chartCard">
-      <div class="chartBox">
-        <canvas id="myChart"></canvas>
-        <button onclick="updateChart()">a</button>
-      </div>
-    </div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Crypto</th>
+          <th>Cantidad para Administrador</th>
+          <th>Precio unitario en USD</th>
+        </tr>
+      </thead>
+      <tbody id="data1">
+      </tbody>
+    </table>
+  </div>
+
+   <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre del Rig</th>
+          <th>Shares</th>
+          <th>Velocidad Promedio</th>
+          <th>Velocidad Reportada</th>
+          <th>ETH</th>
+        </tr>
+      </thead>
+      <tbody id="workers">
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Transaccion</th>
+          <th>Fecha</th>
+          <th>ETH</th>
+        </tr>
+      </thead>
+      <tbody id="tranD">
+      </tbody>
+    </table>
+  </div>
+    
+
     <script>
-        function updateChart() {
+      let url = 'https://api.simpleminer.app/?type=wallet&phone=528712001994&token=eb81c251cc3deaf925465008da4d198a';
+        fetch(url)
+            .then( response => response.json() )
+            .then( data => mostrarData(data) )
+            .catch( error => console.log(error) )
 
-                                
+        const mostrarData = (data) => {
+            console.log(data)
+            let body1 = ""
+            let bodyWor = ""
+            let bodyTranD = ""
+                 
+               body1+=`<tr><td>"ETH"</td><td>${data.data.eth}</td><td>${data.data.rates.eth}</td></tr>`
+                             
+               bodyWor+=`<tr><td>"Serge"</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Serge.shares}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Serge.avgSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Serge.reportedSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Serge.eth}</td></tr>
+                       <tr><td>"Carlos_Serrano_1"</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Serrano_1.shares}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Serrano_1.avgSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Serrano_1.reportedSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Serrano_1.eth}</td></tr>
+                       <tr><td>"Carlos_Serrano"</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Serrano.shares}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Serrano.avgSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Serrano.reportedSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Serrano.eth}</td></tr>
+                       <tr><td>"Jorge"</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Jorge.shares}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Jorge.avgSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Jorge.reportedSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Jorge.eth}</td></tr>
+                       <tr><td>"Carlos_Adame"</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Adame.shares}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Adame.avgSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Adame.reportedSpeed}</td>
+                           <td>${data.data.transactions.transactions[0].data.workers.Carlos_Adame.eth}</td></tr>`
 
-              async function fetchData() {
-                 const url = 'https://api.simpleminer.app/?type=wallet&phone=528712001994&token=eb81c251cc3deaf925465008da4d198a';
-                 const response = await fetch(url);
-
-                 const datapoints = await response.json();
-
-                 console.log(datapoints);
-                 return datapoints;
-             }
-
-             fetchData().then(datapoints => {
-                 const serRend = datapoints.data.transactions.transactions[0].data.workers.Serge.avgSpeed
-                 const serEth = datapoints.data.transactions.transactions[0].data.workers.Serge.eth
-                 const adaRend = datapoints.data.transactions.transactions[0].data.workers.Carlos_Adame.avgSpeed
-                 const adaEth = datapoints.data.transactions.transactions[0].data.workers.Carlos_Adame.eth
-                 const serrRend = datapoints.data.transactions.transactions[0].data.workers.Carlos_Serrano.avgSpeed
-                 const serrEth = datapoints.data.transactions.transactions[0].data.workers.Carlos_Serrano.eth
-                 const serr1Rend = datapoints.data.transactions.transactions[0].data.workers.Carlos_Serrano_1.avgSpeed
-                 const serr1Eth = datapoints.data.transactions.transactions[0].data.workers.Carlos_Serrano_1.eth
-                 const jorRend = datapoints.data.transactions.transactions[0].data.workers.Jorge.avgSpeed
-                 const jorEth = datapoints.data.transactions.transactions[0].data.workers.Jorge.eth
-
-                 const datos = datapoints.data.transactions.transactions[0].data.workers
-                                                     
-                     console.log(serRend);
-                     console.log(serEth);
-
-                     console.log(datos);
-
-                     myChart.config.data.labels = serRend,serEth
-                     myChart.update()
-
-             });
-
+               bodyTranD+=`<tr><td>${data.data.transactions.transactions[0].id}</td><td>${data.data.transactions.transactions[0].date}</td><td>${data.data.transactions.transactions[0].eth}</td></tr>`
+            
+            document.getElementById('data1').innerHTML = body1
+            document.getElementById('workers').innerHTML = bodyWor
+            document.getElementById('tranD').innerHTML = bodyTranD
         }
-    // setup 
-    const data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Weekly Sales',
-        data: [18, 12, 6, 9, 12, 3, 9],
-        backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(0, 0, 0, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)'
-        ],
-        borderWidth: 1
-      }]
-    };
-
-    // config 
-    const config = {
-      type: 'bar',
-      data,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    };
-
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
     </script>
 
-  </body>
+</div>
