@@ -25,7 +25,7 @@ passport.use(new LocalStrategy(
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('Login', { title: 'Express' });
+    res.render('Login', { title: 'Login' });
 });
 
 router.post('/login',
