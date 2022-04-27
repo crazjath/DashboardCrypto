@@ -11,24 +11,18 @@ passport.use(new LocalStrategy(
     await client.connect();
     const db = client.db(dbName);
     const collection = db.collection("Usuarios");
-
-
-
-
-
     await collection.findOne({ email: username }, async function (err, user) {
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
 
       console.log(password)
-      const hashPassword = await bcrypt.hash(password, 10)
-      console.log(hashPassword)
-      const hashUserPassword = await bcrypt.hash(user.password, 10)
-      console.log(hashUserPassword)
-
       console.log(user.password)
 
-      if (user.password !== password) { return done(null, false); }
+      const isValidPass = bcrypt.compareSync(password, user.password);
+      
+      console.log(isValidPass);
+
+      if (!isValidPass) { return done(null, false); }
       return done(null, user);
     });
   }

@@ -35,13 +35,13 @@ async function regUser(datos) {
   await client.connect();
   const db = client.db(dbName);
   const collection = db.collection('Usuarios');
-  //const hashUserPassword = await bcrypt.hash(datos.password, 10)
+  const hashUserPassword = await bcrypt.hash(datos.password, 10)
 
   const users = new User({
     nombre: datos.nombre,
     apellido: datos.apellido,
     email: datos.email,
-    password: datos.password
+    password: hashUserPassword
   }
   )
 
