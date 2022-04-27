@@ -4,7 +4,8 @@ var router = express.Router();
 var { client, dbName } = require('../db/mongo');
 
 const User = require('../models/user.model');
-const { authSchema } = require('../validations/user.validation')
+const { authSchema } = require('../validations/user.validation');
+const bcrypt = require('bcryptjs');
 
 
 /* GET users listing. */
@@ -34,6 +35,7 @@ async function regUser(datos) {
   await client.connect();
   const db = client.db(dbName);
   const collection = db.collection('Usuarios');
+  //const hashUserPassword = await bcrypt.hash(datos.password, 10)
 
   const users = new User({
     nombre: datos.nombre,
@@ -43,7 +45,7 @@ async function regUser(datos) {
   }
   )
 
-  users.password = await users.encryptPassword(datos.password);
+
 
   await collection.insertOne(users)
 
