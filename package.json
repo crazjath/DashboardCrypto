@@ -8,26 +8,26 @@
     "build": "tailwindcss -i ./src/style.css -o ./public/stylesheets/style.css"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.4",
+    "express": "^4.18.0",
     "express-session": "^1.17.2",
     "hbs": "^4.2.0",
     "heroicons": "^1.0.6",
-    "http-errors": "~1.6.3",
-    "joi": "^17.6.0",
-    "joi-json": "^4.0.0",
-    "joi-to-json": "^2.2.0",
+    "http-errors": "~2.0.0",
     "mongo": "^0.1.0",
-    "morgan": "~1.9.1",
+    "mongoose": "^6.3.1",
+    "morgan": "~1.10.0",
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.15",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "tailwindcss": "^3.0.23"
+    "dotenv": "^16.0.0",
+    "tailwindcss": "^3.0.24"
   }
 }
