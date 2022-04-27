@@ -5,7 +5,7 @@
 <div class="grid grid-rows-3 gap-4">
 
   <div>
-    <table>
+    <table class="table-auto table-fix border-collapse">
       <thead>
         <tr>
           <th>Crypto</th>
@@ -19,7 +19,7 @@
   </div>
 
   <div>
-    <table>
+    <table class="table-auto table-fix border-collapse">
       <thead>
         <tr>
           <th>ID Transaccion</th>
@@ -47,7 +47,7 @@
                body1+=`<tr><td>"ETH"</td>
                            <td>${data.data.eth}</td>
                            <td>${data.data.rates.eth}</td></tr>`
-                           
+
                bodyTranD+=`<tr><td>${data.data.transactions.transactions[0].id}</td>
                                <td>${data.data.transactions.transactions[0].date}</td>
                                <td>${data.data.transactions.transactions[0].eth}</td></tr>`
