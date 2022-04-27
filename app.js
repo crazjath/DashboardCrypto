@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
 var passport = require('passport');
-
+var fetch = require('node-fetch');
 
 
 
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-const fetch = require('node-fetch');
+
 
 
 app.use('/', LoginRouter);

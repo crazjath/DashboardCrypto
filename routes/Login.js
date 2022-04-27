@@ -4,7 +4,6 @@ var {client, dbName} = require("../db/mongo");
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 
-
 passport.use(new LocalStrategy(
     async function(username, password, done) {
       await client.connect();
