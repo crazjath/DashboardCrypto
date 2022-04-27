@@ -15,12 +15,7 @@ passport.use(new LocalStrategy(
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
 
-      console.log(password)
-      console.log(user.password)
-
-      const isValidPass = bcrypt.compareSync(password, user.password);
-      
-      console.log(isValidPass);
+      const isValidPass = bcrypt.compareSync(password, user.password); 
 
       if (!isValidPass) { return done(null, false); }
       return done(null, user);
