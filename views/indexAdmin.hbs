@@ -3,9 +3,9 @@
     {{> dashboardAdmin}}
 
 <div class="grid grid-rows-3 gap-4">
-
+ <table class="table-fix border-collapse"></table>
   <div>
-    <table>
+   
       <thead>
         <tr>
           <th>Crypto</th>
@@ -15,11 +15,10 @@
       </thead>
       <tbody id="data1">
       </tbody>
-    </table>
+    
   </div>
 
   <div>
-    <table>
       <thead>
         <tr>
           <th>ID Transaccion</th>
@@ -29,8 +28,9 @@
       </thead>
       <tbody id="tranD">
       </tbody>
-    </table>
   </div>
+</table>
+
 
     <script>
       let url = 'https://api.simpleminer.app/?type=wallet&phone=528712001994&token=eb81c251cc3deaf925465008da4d198a';
